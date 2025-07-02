@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TesterLogin from './pages/auth/TesterLogin';
 import TesterRegister from './pages/auth/TesterRegister';
+import TesterDashboard from './pages/tester/TesterDashboard';
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<TesterLogin />} />
         <Route path="/register" element={<TesterRegister />} />
-        {/* TODO: Add dashboard later */}
+        <Route path="/tester/dashboard" element={<TesterDashboard />} />;
       </Routes>
     </Router>
   );
