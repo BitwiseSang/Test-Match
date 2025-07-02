@@ -1,4 +1,3 @@
-// src/pages/auth/TesterLogin.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../../api/axios';
@@ -14,7 +13,6 @@ export default function TesterLogin() {
     e.preventDefault();
     try {
       const res = await axios.post('/auth/tester/login', { email, password });
-      console.log(res);
       localStorage.setItem('token', res.data.token);
       navigate('/tester/dashboard');
     } catch (err) {
