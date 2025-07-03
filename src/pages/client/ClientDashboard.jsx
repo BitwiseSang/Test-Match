@@ -1,27 +1,63 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function ClientDashboard() {
   const [testCycles, setTestCycles] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchCycles = async () => {
-      const res = await fetch(
-        'https://test-match-server.onrender.com/api/test-cycles/',
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        }
-      );
-      const data = await res.json();
-      if (res.ok) {
-        setTestCycles(data.cycles || []);
-      } else {
-        alert(data.error || 'Failed to fetch test cycles');
+  const fetchCycles = async () => {
+    const res = await fetch(
+      'https://test-match-server.onrender.com/api/test-cycles/',
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       }
-    };
+    );
+    const data = await res.json();
+    if (res.ok) {
+      setTestCycles(data.cycles || []);
+    } else {
+      alert(data.error || 'Failed to fetch test cycles');
+    }
+  };
+
+  const handleCancel = async (id) => {
+    const confirmCancel = confirm(
+      'Are you sure you want to cancel this test cycle?'
+    );
+    if (!confirmCancel) return;
+
+    const loadingToastId = toast.loading('Cancelling test cycle...');
+
+    const res = await fetch(
+      `https://test-match-server.onrender.com/api/test-cycles/${id}/status`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify({ status: 'CANCELLED' }),
+      }
+    );
+
+    const data = await res.json();
+    if (res.ok) {
+      toast.success('Test cycle cancelled successfully!', {
+        id: loadingToastId,
+      });
+      // alert('Test cycle cancelled.');
+      fetchCycles();
+    } else {
+      toast.error('Failed to cancel test cycle');
+      console.log(data.error);
+      // alert(data.error || 'Failed to cancel test cycle');
+    }
+  };
+
+  useEffect(() => {
     fetchCycles();
   }, []);
 
@@ -89,6 +125,14 @@ export default function ClientDashboard() {
                         ✏️ Edit
                       </button>
                     )}
+                    {cycle.status === 'OPEN' && (
+                      <button
+                        onClick={() => handleCancel(cycle.id)}
+                        style={dangerBtn}
+                      >
+                        Cancel
+                      </button>
+                    )}
                   </div>
                 </li>
               ))}
@@ -101,3 +145,12 @@ export default function ClientDashboard() {
     </div>
   );
 }
+
+const dangerBtn = {
+  background: '#e53935',
+  color: 'white',
+  border: 'none',
+  padding: '0.4rem 0.8rem',
+  cursor: 'pointer',
+  borderRadius: '4px',
+};
