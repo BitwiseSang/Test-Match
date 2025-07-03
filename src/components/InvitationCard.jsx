@@ -4,7 +4,7 @@ import '../styles/card.css';
 export default function InvitationCard({ data }) {
   const handleRespond = async (status) => {
     try {
-      await api.patch(
+      await api.post(
         `/invitations/${data.id}/respond`,
         { status },
         {
