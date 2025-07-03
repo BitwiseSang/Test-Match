@@ -4,7 +4,7 @@ import './Navbar.css';
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <h1 className="navbar-title">Tester Portal</h1>
+      <h1 className="navbar-title">Test-Match</h1>
       <div className="navbar-links">
         <Link to="/tester/dashboard">Home</Link>
         <Link to="/tester/test-cycles">Test Cycles</Link>
