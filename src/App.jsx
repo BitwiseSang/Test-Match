@@ -7,6 +7,8 @@ import ClientSignup from './pages/client/ClientRegister';
 import ClientDashboard from './pages/client/ClientDashboard';
 import CreateTestCycle from './pages/client/CreateTestCycle';
 import EditTestCycle from './pages/client/EditTestCycle';
+import ViewCycleInvites from './pages/client/ViewCycleInvites';
+import AcceptedTesters from './pages/client/AcceptedTesters';
 
 function App() {
   return (
@@ -19,9 +21,14 @@ function App() {
         <Route path="/client/signup" element={<ClientSignup />} />
         <Route path="/client/dashboard" element={<ClientDashboard />} />
         <Route path="/client/create" element={<CreateTestCycle />} />
+        <Route path="/client/test-cycles/:id" element={<ViewCycleInvites />} />
         <Route
           path="/client/test-cycles/:id/edit"
           element={<EditTestCycle />}
+        />
+        <Route
+          path="/client/test-cycles/:id/accepted"
+          element={<AcceptedTesters />}
         />
       </Routes>
     </Router>
