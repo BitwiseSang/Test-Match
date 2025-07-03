@@ -10,6 +10,7 @@ import EditTestCycle from './pages/client/EditTestCycle';
 import ViewCycleInvites from './pages/client/ViewCycleInvites';
 import AcceptedTesters from './pages/client/AcceptedTesters';
 import { Toaster } from 'react-hot-toast';
+import TestCycleDetails from './pages/tester/TestCycleDetails';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             path="/client/test-cycles/:id/accepted"
             element={<AcceptedTesters />}
           />
+          <Route path="/test-cycles/:id" element={<TestCycleDetails />} />
         </Routes>
       </Router>
     </>

@@ -1,56 +1,41 @@
-// src/components/InvitationCard.jsx
 import api from '../api/axios';
-import { useState } from 'react';
+import '../styles/card.css';
 
-export default function InvitationCard({ data, onAction }) {
-  const [loading, setLoading] = useState(false);
-
-  const respondToInvite = async (status) => {
-    setLoading(true);
-    const token = localStorage.getItem('token');
-
+export default function InvitationCard({ data }) {
+  const handleRespond = async (status) => {
     try {
-      await api.post(
+      await api.patch(
         `/invitations/${data.id}/respond`,
         { status },
         {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         }
       );
-      onAction && onAction(); // Refresh parent list
+      window.location.reload(); // or use state to avoid reload
     } catch (err) {
-      console.error(`Failed to ${status.toLowerCase()} invite`, err);
-      alert(`Could not ${status.toLowerCase()} invitation.`);
-    } finally {
-      setLoading(false);
+      alert('Failed to respond to invitation');
+      console.error(err);
     }
   };
 
   return (
     <div className="card">
-      <h3>{data.testCycle?.title || 'Unnamed Test'}</h3>
       <p>
-        Status: <strong>{data.status}</strong>
+        <strong>Test:</strong> {data.testCycle.title}
       </p>
-      <p>Sent: {new Date(data.sentAt).toLocaleString()}</p>
-      {data.respondedAt && (
-        <p>Responded: {new Date(data.respondedAt).toLocaleString()}</p>
-      )}
+      <p>
+        <strong>Status:</strong> {data.status}
+      </p>
+      <p>
+        <strong>Invited:</strong> {new Date(data.sentAt).toLocaleString()}
+      </p>
 
       {data.status === 'PENDING' && (
-        <div style={{ marginTop: '10px' }}>
-          <button
-            onClick={() => respondToInvite('ACCEPTED')}
-            disabled={loading}
-            style={{ marginRight: '10px' }}
-          >
+        <div className="actions">
+          <button onClick={() => handleRespond('ACCEPTED')} className="accept">
             Accept
           </button>
-          <button
-            onClick={() => respondToInvite('DECLINED')}
-            disabled={loading}
-            style={{ backgroundColor: '#f44336', color: 'white' }}
-          >
+          <button onClick={() => handleRespond('DECLINED')} className="decline">
             Decline
           </button>
         </div>
