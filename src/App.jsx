@@ -4,6 +4,7 @@ import TesterRegister from './pages/auth/TesterRegister';
 import TesterDashboard from './pages/tester/TesterDashboard';
 import ClientLogin from './pages/client/ClientLogin';
 import ClientSignup from './pages/client/ClientRegister';
+import ClientDashboard from './pages/client/ClientDashboard';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/tester/dashboard" element={<TesterDashboard />} />;
         <Route path="/client/login" element={<ClientLogin />} />
         <Route path="/client/signup" element={<ClientSignup />} />
+        <Route path="/client/dashboard" element={<ClientDashboard />} />
       </Routes>
     </Router>
   );
