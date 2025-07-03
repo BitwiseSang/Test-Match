@@ -2,15 +2,17 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../api/axios';
 import Navbar from '../../components/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 export default function TestCycleDetails() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [cycle, setCycle] = useState(null);
 
   useEffect(() => {
     const fetchCycle = async () => {
       try {
-        const res = await api.get(`/test-cycles/cycle/${id}`, {
+        const res = await api.get(`/test-cycles/tester/cycle/${id}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         setCycle(res.data);
@@ -26,6 +28,9 @@ export default function TestCycleDetails() {
   return (
     <>
       <Navbar />
+      <button onClick={() => navigate(-1)} style={{ marginBottom: '1rem' }}>
+        ⬅ Back
+      </button>
       <div style={{ padding: '2rem' }}>
         <h2>{cycle.title}</h2>
         <p>
