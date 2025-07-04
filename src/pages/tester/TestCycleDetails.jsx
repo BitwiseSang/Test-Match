@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../api/axios';
 import Navbar from '../../components/Navbar';
-import { useNavigate } from 'react-router-dom';
+import BackButton from '../../components/BackButton';
 
 export default function TestCycleDetails() {
-  const navigate = useNavigate();
   const { id } = useParams();
   const [cycle, setCycle] = useState(null);
 
@@ -28,9 +27,10 @@ export default function TestCycleDetails() {
   return (
     <>
       <Navbar />
-      <button onClick={() => navigate(-1)} style={{ marginBottom: '1rem' }}>
+      {/* <button onClick={() => navigate(-1)} style={{ marginBottom: '1rem' }}>
         ⬅ Back
-      </button>
+      </button> */}
+      <BackButton />
       <div style={{ padding: '2rem' }}>
         <h2>{cycle.title}</h2>
         <p>

@@ -1,11 +1,16 @@
-/* src/styles/AuthForm.css */
+body {
+  display: flex;
+  justify-content: center;
+}
+
 .auth-container {
-  max-width: 400px;
-  margin: 80px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 400px;
   padding: 2rem;
-  border: 1px solid #ddd;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background-color: white;
 }
 
 .auth-container h2 {
@@ -23,21 +28,41 @@
 .auth-container button {
   padding: 0.75rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
   font-size: 1rem;
 }
 
+input {
+  background-color: white;
+  outline: 1px solid var(--color-primary-dark);
+  color: rgb(75, 75, 75);
+  font-weight: bold;
+}
+
+input:focus {
+  outline: none;
+  background-color: rgb(167, 165, 165);
+  color: black;
+}
+
 .auth-container button {
-  background-color: #007bff;
+  background-color: var(--color-primary);
   color: white;
   border: none;
   cursor: pointer;
 }
 
 .auth-container button:hover {
-  background-color: #0056b3;
+  background-color: var(--color-primary-dark);
 }
 
 .auth-container p {
   text-align: center;
+}
+
+a:visited,
+a:link,
+a:active {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
 }
