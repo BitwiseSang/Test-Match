@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--color-primary);
+  min-height: 4rem;
+  padding: 1rem;
+  margin-bottom: 15px;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+a:visited,
+a:link,
+a:active {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}

@@ -25,6 +25,7 @@ export default function TesterLogin() {
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2>Tester Login</h2>
         {error && <p className="auth-error">{error}</p>}
+
         <input
           type="email"
           placeholder="Email"

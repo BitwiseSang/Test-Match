@@ -34,8 +34,8 @@ export default function ClientLogin() {
 
   return (
     <div className="auth-container">
-      <h2>Client Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <h2>Client Login</h2>
         <input
           type="email"
           placeholder="Email"

@@ -47,8 +47,8 @@ export default function ClientRegister() {
 
   return (
     <div className="auth-container">
-      <h2>Client Sign Up</h2>
       <form onSubmit={handleSubmit}>
+        <h2>Client Sign Up</h2>
         <input
           type="text"
           name="companyName"
