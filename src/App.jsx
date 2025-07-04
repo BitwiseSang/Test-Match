@@ -11,6 +11,7 @@ import ViewCycleInvites from './pages/client/ViewCycleInvites';
 import AcceptedTesters from './pages/client/AcceptedTesters';
 import { Toaster } from 'react-hot-toast';
 import TestCycleDetails from './pages/tester/TestCycleDetails';
+import TesterProfile from './pages/tester/TesterProfile';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             element={<AcceptedTesters />}
           />
           <Route path="/test-cycles/:id" element={<TestCycleDetails />} />
+          <Route path="/tester/profile" element={<TesterProfile />} />
         </Routes>
       </Router>
     </>

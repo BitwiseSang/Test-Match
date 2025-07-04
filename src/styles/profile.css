@@ -1,0 +1,79 @@
+/* Container styles */
+.profile-container {
+  padding: 0 4rem;
+}
+
+.profile-form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--color-background);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+.profile-form-container h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Form styles */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Space between form elements */
+}
+
+/* Label styles */
+.profile-form label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+  display: block; /* Ensures labels are on their own line */
+}
+
+/* INPUT */
+input {
+  height: 48px;
+  border-radius: 15px;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+/* Input styles */
+.profile-form input[type='text'],
+.profile-form input[type='file'] {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 6px;
+  background-color: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Input focus and hover states */
+.profile-form input[type='text']:focus,
+.profile-form input[type='file']:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(55, 157, 241, 0.2); /* Subtle glow effect */
+}
+
+/* File input specific styles */
+.profile-form input[type='file'] {
+  padding: 0.5rem; /* Slightly less padding for file input */
+  cursor: pointer;
+}
+
+/* Button styles */
+.profile-form button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
