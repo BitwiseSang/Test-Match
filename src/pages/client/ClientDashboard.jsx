@@ -53,7 +53,7 @@ export default function ClientDashboard() {
       // alert('Test cycle cancelled.');
       fetchCycles();
     } else {
-      toast.error('Failed to cancel test cycle');
+      toast.error('Failed to cancel test cycle', { id: loadingToastId });
       console.log(data.error);
       // alert(data.error || 'Failed to cancel test cycle');
     }
