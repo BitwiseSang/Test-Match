@@ -19,6 +19,9 @@
   --color-background: #f9fafb; /* Light background for the form */
   --color-border: #d1d5db; /* Neutral border color */
   --color-error: #ef4444; /* Red for error states */
+
+  --primary-font: 'DM Sans', sans-serif;
+  --secondary-font: 'Inter', sans-serif;
 }
 
 *::before,
@@ -43,6 +46,23 @@ body {
   min-height: 100vh;
   color: black;
   padding: 0;
+}
+
+body,
+p,
+br,
+strong,
+span {
+  font-family: var(--primary-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--secondary-font);
 }
 
 button {
