@@ -1,0 +1,247 @@
+.container {
+  padding: 0 4rem;
+}
+
+.formContainer {
+  max-width: 700px;
+  margin: 1rem auto; /* Reduced from 2rem to avoid large margins */
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  color: black;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #fff;
+  color: black;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #379df1;
+  box-shadow: 0 0 0 3px rgba(55, 157, 241, 0.2);
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #379df1;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 1rem;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #2a8cd6;
+}
+
+.button:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.divider {
+  margin: 1.5rem 0; /* Reduced from 2rem */
+  border: 0;
+  border-top: 1px solid #d1d5db;
+}
+
+.loadingSpinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #d1d5db;
+  border-top: 4px solid #379df1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingSpinner p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 1rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.noDevices {
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.deviceList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.deviceItem {
+  font-size: 1rem;
+  color: #333;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.deviceItem:last-child {
+  border-bottom: none;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.modalContent {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%; /* Adjust as needed */
+  max-width: 500px; /* Max width for larger screens */
+  position: relative; /* For positioning the close button */
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #aaa;
+  line-height: 1; /* Adjust to properly center 'x' */
+}
+
+.closeButton:hover {
+  color: #666;
+}
+
+/* .modalBody {
+} */
+
+.registerButtonContainer {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  padding: 20px 0; /* Adds some spacing around the button */
+}
+
+.sortControls {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  margin-bottom: 20px;
+  align-items: center;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  justify-content: center; /* Center buttons */
+}
+
+.sortControls span {
+  font-weight: bold;
+  color: #555;
+}
+
+.sortButton {
+  background-color: black;
+  padding: 8px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.sortButton:hover {
+  background-color: var(--color-primary-hover);
+  border: none;
+}
+
+.sortButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Focus indicator */
+}

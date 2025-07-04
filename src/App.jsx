@@ -12,6 +12,7 @@ import AcceptedTesters from './pages/client/AcceptedTesters';
 import { Toaster } from 'react-hot-toast';
 import TestCycleDetails from './pages/tester/TestCycleDetails';
 import TesterProfile from './pages/tester/TesterProfile';
+import DeviceRegistration from './pages/tester/DeviceRegistration';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           />
           <Route path="/test-cycles/:id" element={<TestCycleDetails />} />
           <Route path="/tester/profile" element={<TesterProfile />} />
+          <Route path="/devices/register" element={<DeviceRegistration />} />
         </Routes>
       </Router>
     </>
