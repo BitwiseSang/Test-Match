@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import api from '../api/axios';
 import '../styles/card.css';
 
 export default function InvitationCard({ data }) {
+  const navigate = useNavigate();
   const handleRespond = async (status) => {
     try {
       await api.post(
@@ -18,8 +20,13 @@ export default function InvitationCard({ data }) {
     }
   };
 
+  const handleClick = () => {
+    navigate(`/test-cycles/${data.testCycle.id}`);
+  };
+  // console.log(data);
+
   return (
-    <div className="card">
+    <div className="card" onClick={handleClick}>
       <p>
         <strong>Test:</strong> {data.testCycle.title}
       </p>

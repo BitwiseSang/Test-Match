@@ -22,7 +22,7 @@ export default function TesterDashboard() {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
-        console.log(invitesRes.data);
+        // console.log(invitesRes.data);
         setInvitations(invitesRes.data || []);
         setTestCycles(cyclesRes.data || []);
       } catch (err) {
