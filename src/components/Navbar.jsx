@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 // import { useEffect, useState } from 'react';
 // import api from '../api/axios';
-import './Navbar.css';
+import styles from './Navbar.module.css';
 import defaultAvatar from '../assets/default-avatar.png';
 
 export default function Navbar() {
@@ -37,12 +37,21 @@ export default function Navbar() {
   // }, []);
 
   return (
-    <nav className="navbar">
-      <h1 className="navbar-title">Test-Match</h1>
-      <div className="navbar-links">
-        <Link to="/tester/dashboard">Home</Link>
-        <Link to="/tester/test-cycles">Test Cycles</Link>
-        <Link to="/tester/invitations">Invitations</Link>
+    <nav className={styles.navbar}>
+      <h1 className={styles.navbarTitle}>Test Match</h1>
+      <div className={styles.navbarLinks}>
+        <Link to="/tester/dashboard" className={styles.link}>
+          Home
+        </Link>
+        <Link to="/devices/register" className={styles.link}>
+          Devices
+        </Link>
+        <Link to="/tester/test-cycles" className={styles.link}>
+          Test Cycles
+        </Link>
+        <Link to="/tester/invitations" className={styles.link}>
+          Invitations
+        </Link>
         {/* <img
             src={avatarUrl}
             className="avatar"
@@ -52,7 +61,7 @@ export default function Navbar() {
           /> */}
         <img
           src={defaultAvatar}
-          className="avatar"
+          className={styles.avatar}
           alt="Profile Avatar"
           style={{ maxWidth: '200px' }}
           onClick={() => navigate('/tester/profile')}

@@ -24,7 +24,7 @@ function App() {
           <Route path="/register" element={<TesterRegister />} />
           <Route path="/tester/dashboard" element={<TesterDashboard />} />;
           <Route path="/client/login" element={<ClientLogin />} />
-          <Route path="/client/signup" element={<ClientSignup />} />
+          <Route path="/client/register" element={<ClientSignup />} />
           <Route path="/client/dashboard" element={<ClientDashboard />} />
           <Route path="/client/create" element={<CreateTestCycle />} />
           <Route

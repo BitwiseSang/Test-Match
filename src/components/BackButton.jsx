@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import './BackButton.css';
+import styles from './BackButton.module.css';
 import backIcon from '../assets/left-chevron.png';
 
 export default function BackButton() {
@@ -7,12 +7,11 @@ export default function BackButton() {
   return (
     <>
       <button
-        className="back-button"
+        className={styles.btn}
         onClick={() => navigate(-1)}
         style={{ marginBottom: '1rem' }}
       >
-        <img src={backIcon} alt="back button icon" />
-        Back
+        <img className={styles.image} src={backIcon} alt="back button icon" />
       </button>
     </>
   );

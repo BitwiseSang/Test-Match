@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import '../styles/card.css';
-
+import styles from './TestCycleCard.module.css';
 export default function TestCycleCard({ data }) {
   const navigate = useNavigate();
 
@@ -8,8 +7,24 @@ export default function TestCycleCard({ data }) {
     navigate(`/test-cycles/${data.id}`);
   };
 
+  const getStatusClass = (status) => {
+    switch (status) {
+      case 'OPEN':
+        return styles.statusOPEN;
+      case 'CLOSED':
+        return styles.statusCLOSED;
+      case 'COMPLETED':
+        return styles.statusCOMPLETED;
+      // Add more cases as needed
+      case 'CANCELLED':
+        return styles.statusCANCELLED;
+      default:
+        return '';
+    }
+  };
+
   return (
-    <div className="card" onClick={handleClick}>
+    <div className={styles.card} onClick={handleClick}>
       <h3>{data.title}</h3>
       <p>
         <strong>Description:</strong> {data.description}
@@ -17,7 +32,9 @@ export default function TestCycleCard({ data }) {
       <p>
         <p>
           <strong>Status:</strong>{' '}
-          <span className={`status-badge status-${data.status}`}>
+          <span
+            className={`${styles.statusBadge} ${getStatusClass(data.status)}`}
+          >
             {data.status}
           </span>
         </p>

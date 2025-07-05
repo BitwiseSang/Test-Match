@@ -27,9 +27,6 @@ export default function TestCycleDetails() {
   return (
     <>
       <Navbar />
-      {/* <button onClick={() => navigate(-1)} style={{ marginBottom: '1rem' }}>
-        ⬅ Back
-      </button> */}
       <BackButton />
       <div style={{ padding: '2rem' }}>
         <h2>{cycle.title}</h2>

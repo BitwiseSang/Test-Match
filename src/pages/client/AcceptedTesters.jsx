@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import BackButton from '../../components/BackButton';
+import ClientNavbar from '../../components/ClientNavbar';
 
 export default function AcceptedTesters() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [accepted, setAccepted] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -33,49 +34,50 @@ export default function AcceptedTesters() {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Accepted Testers</h2>
-      <button onClick={() => navigate(-1)} style={{ marginBottom: '1rem' }}>
-        ⬅ Back
-      </button>
+    <div>
+      <ClientNavbar />
+      <div style={{ padding: '0 4rem' }}>
+        <BackButton />
+        <h2>Accepted Testers</h2>
 
-      {accepted.length === 0 ? (
-        <p>No testers have accepted this test cycle yet.</p>
-      ) : (
-        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-          <thead>
-            <tr>
-              <th style={th}>Name</th>
-              <th style={th}>Email</th>
-              <th style={th}>Location</th>
-              <th style={th}>Accepted At</th>
-              <th style={th}>Devices</th>
-            </tr>
-          </thead>
-          <tbody>
-            {accepted.map((tester) => (
-              <tr key={tester.testerId}>
-                <td style={td}>{tester.name || '—'}</td>
-                <td style={td}>{tester.email}</td>
-                <td style={td}>{tester.location}</td>
-                <td style={td}>
-                  {new Date(tester.acceptedAt).toLocaleString()}
-                </td>
-                <td style={td}>
-                  <ul style={{ margin: 0, paddingLeft: '1rem' }}>
-                    {tester.devices?.map((device, i) => (
-                      <li key={i}>
-                        {device.brand} {device.model} ({device.os}{' '}
-                        {device.osVersion})
-                      </li>
-                    )) || '—'}
-                  </ul>
-                </td>
+        {accepted.length === 0 ? (
+          <p>No testers have accepted this test cycle yet.</p>
+        ) : (
+          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <thead>
+              <tr>
+                <th style={th}>Name</th>
+                <th style={th}>Email</th>
+                <th style={th}>Location</th>
+                <th style={th}>Accepted At</th>
+                <th style={th}>Devices</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            </thead>
+            <tbody>
+              {accepted.map((tester) => (
+                <tr key={tester.testerId}>
+                  <td style={td}>{tester.name || '—'}</td>
+                  <td style={td}>{tester.email}</td>
+                  <td style={td}>{tester.location}</td>
+                  <td style={td}>
+                    {new Date(tester.acceptedAt).toLocaleString()}
+                  </td>
+                  <td style={td}>
+                    <ul style={{ margin: 0, paddingLeft: '1rem' }}>
+                      {tester.devices?.map((device, i) => (
+                        <li key={i}>
+                          {device.brand} {device.model} ({device.os}{' '}
+                          {device.osVersion})
+                        </li>
+                      )) || '—'}
+                    </ul>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import api from '../../api/axios';
 import InvitationCard from '../../components/InvitationCard';
 import TestCycleCard from '../../components/TestCycleCard';
-import '../../styles/dashboard.css';
+import styles from './TesterDashboard.module.css';
 
 export default function TesterDashboard() {
   const [invitations, setInvitations] = useState([]);
@@ -36,10 +36,10 @@ export default function TesterDashboard() {
   return (
     <div>
       <Navbar />
-      <div className="dashboard-container">
-        <div className="section">
+      <div className={styles.dashboardContainer}>
+        <div className={styles.section}>
           <h2>My Invitations</h2>
-          <div className="card-list">
+          <div className={styles.cardList}>
             {invitations.length === 0 ? (
               <p>No invitations yet.</p>
             ) : (
@@ -50,9 +50,9 @@ export default function TesterDashboard() {
           </div>
         </div>
 
-        <div className="section">
+        <div className={styles.section}>
           <h2>Available Test Cycles</h2>
-          <div className="card-list">
+          <div className={styles.testCyclesContainer}>
             {testCycles.length === 0 ? (
               <p>No test cycles available.</p>
             ) : (

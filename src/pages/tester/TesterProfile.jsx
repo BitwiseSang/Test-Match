@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import api from '../../api/axios';
 import Navbar from '../../components/Navbar';
 import toast from 'react-hot-toast';
-import '../../styles/profile.css';
+import styles from './TesterProfile.module.css';
 import BackButton from '../../components/BackButton';
 
 export default function TesterProfile() {
@@ -67,14 +67,14 @@ export default function TesterProfile() {
   return (
     <>
       <Navbar />
-      <div className="profile-container">
+      <div className={styles.profileContainer}>
         <BackButton />
-        <div className="profile-form-container">
+        <div className={styles.profileFormContainer}>
           <h2>Update Profile</h2>
           <form
             onSubmit={handleSubmit}
             encType="multipart/form-data"
-            className="profile-form"
+            className={styles.profileForm}
           >
             <label>Name</label>
             <input

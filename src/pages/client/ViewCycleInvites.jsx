@@ -38,8 +38,8 @@ export default function ViewCycleInvites() {
     <>
       <ClientNavbar />
       <div style={{ padding: '2rem' }}>
-        <h2>Invitations for Test Cycle</h2>
         <BackButton />
+        <h2>Invitations for Test Cycle</h2>
         <button onClick={() => navigate(`/client/test-cycles/${id}/accepted`)}>
           View Accepted Testers
         </button>

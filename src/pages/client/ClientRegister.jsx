@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/AuthForm.css';
+import styles from './ClientRegister.module.css';
 
 export default function ClientRegister() {
   const navigate = useNavigate();
@@ -46,8 +46,8 @@ export default function ClientRegister() {
   };
 
   return (
-    <div className="auth-container">
-      <form onSubmit={handleSubmit}>
+    <div className={styles.authContainer}>
+      <form onSubmit={handleSubmit} className={styles.authForm}>
         <h2>Client Sign Up</h2>
         <input
           type="text"
@@ -84,7 +84,7 @@ export default function ClientRegister() {
           onChange={handleChange}
         />
         <button type="submit">Register</button>
-        <p>
+        <p className={styles.authSwitch}>
           Already have an account? <a href="/client/login">Login</a>
         </p>
       </form>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import '../../styles/dashboard.css';
+import styles from './ClientDashboard.module.css';
 import ClientNavbar from '../../components/ClientNavbar';
 
 export default function ClientDashboard() {
@@ -74,7 +74,7 @@ export default function ClientDashboard() {
   return (
     <>
       <ClientNavbar />
-      <div className="dashboard-container">
+      <div className={styles.dashboardContainer}>
         <h1>Client Dashboard</h1>
         <button
           onClick={() => navigate('/client/create')}
@@ -86,7 +86,7 @@ export default function ClientDashboard() {
         {statusOrder.map((status) => (
           <div key={status} style={{ marginBottom: '2rem' }}>
             <h2>{status} Test Cycles</h2>
-            <div className="test-cycles-container">
+            <div className={styles.testCyclesContainer}>
               {grouped[status]?.length ? (
                 <ul style={{ listStyle: 'none', padding: 0 }}>
                   {grouped[status].map((cycle) => (
@@ -98,7 +98,7 @@ export default function ClientDashboard() {
                         marginBottom: '1rem',
                         borderRadius: '8px',
                       }}
-                      className="test-cycle"
+                      className={styles.testCycle}
                     >
                       <h3>{cycle.title}</h3>
                       <p>

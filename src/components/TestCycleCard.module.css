@@ -23,25 +23,7 @@
   margin-top: 0.5rem;
 }
 
-.accept {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.decline {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.status-badge {
+.statusBadge {
   display: inline-block;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
@@ -49,22 +31,22 @@
   font-weight: bold;
 }
 
-.status-OPEN {
+.statusOPEN {
   background-color: #29b6f6;
   color: white;
 }
 
-.status-CLOSED {
+.statusCLOSED {
   background-color: #b0bec5;
   color: white;
 }
 
-.status-COMPLETED {
+.statusCOMPLETED {
   background-color: #66bb6a;
   color: white;
 }
 
-.status-CANCELLED {
+.statusCANCELLED {
   background-color: #ef5350;
   color: white;
 }

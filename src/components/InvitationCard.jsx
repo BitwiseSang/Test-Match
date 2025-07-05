@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import api from '../api/axios';
-import '../styles/card.css';
+import styles from './InvitationCard.module.css';
 
 export default function InvitationCard({ data }) {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ export default function InvitationCard({ data }) {
   // console.log(data);
 
   return (
-    <div className="card" onClick={handleClick}>
+    <div className={styles.card} onClick={handleClick}>
       <p>
         <strong>Test:</strong> {data.testCycle.title}
       </p>
@@ -38,11 +38,17 @@ export default function InvitationCard({ data }) {
       </p>
 
       {data.status === 'PENDING' && (
-        <div className="actions">
-          <button onClick={() => handleRespond('ACCEPTED')} className="accept">
+        <div className={styles.actions}>
+          <button
+            onClick={() => handleRespond('ACCEPTED')}
+            className={styles.accept}
+          >
             Accept
           </button>
-          <button onClick={() => handleRespond('DECLINED')} className="decline">
+          <button
+            onClick={() => handleRespond('DECLINED')}
+            className={styles.decline}
+          >
             Decline
           </button>
         </div>
