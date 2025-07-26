@@ -77,6 +77,7 @@ export default function ClientRegister() {
           onChange={handleChange}
           required
         />
+        <label htmlFor="avatar">Avatar(optional):</label>
         <input
           type="file"
           name="avatar"

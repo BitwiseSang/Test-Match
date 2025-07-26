@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BackButton from '../../components/BackButton';
 import ClientNavbar from '../../components/ClientNavbar';
+import styles from './createTestCycle.module.css';
 
 const OS_OPTIONS = ['ANDROID', 'IOS', 'WINDOWS', 'MACOS', 'LINUX'];
 const DEVICE_OPTIONS = ['MOBILE', 'TABLET', 'LAPTOP', 'DESKTOP'];
@@ -92,18 +93,22 @@ export default function CreateTestCycle() {
           />
           <textarea
             name="description"
+            className={styles.description}
             placeholder="Description"
             rows="4"
             value={form.description}
             onChange={handleChange}
             required
           />
-          <fieldset>
-            <legend>Required Operating Systems</legend>
+          <fieldset className={styles.checklistFieldset}>
+            <legend className={styles.checklistLegend}>
+              Required Operating Systems
+            </legend>
             {OS_OPTIONS.map((os) => (
-              <label key={os} style={{ marginRight: '1rem' }}>
+              <label key={os} className={styles.checklistLabel}>
                 <input
                   type="checkbox"
+                  className={styles.checkbox}
                   checked={form.requiredOS.includes(os)}
                   onChange={() => handleMultiSelect('requiredOS', os)}
                 />{' '}
@@ -111,12 +116,13 @@ export default function CreateTestCycle() {
               </label>
             ))}
           </fieldset>
-          <fieldset>
-            <legend>Required Devices</legend>
+          <fieldset className={styles.checklistFieldset}>
+            <legend className={styles.checklistLegend}>Required Devices</legend>
             {DEVICE_OPTIONS.map((dev) => (
-              <label key={dev} style={{ marginRight: '1rem' }}>
+              <label key={dev} className={styles.checklistLabel}>
                 <input
                   type="checkbox"
+                  className={styles.checkbox}
                   checked={form.requiredDevices.includes(dev)}
                   onChange={() => handleMultiSelect('requiredDevices', dev)}
                 />{' '}
